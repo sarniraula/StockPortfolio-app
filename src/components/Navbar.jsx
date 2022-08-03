@@ -1,8 +1,52 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FaPiggyBank } from 'react-icons/fa';
-import { FiSearch } from 'react-icons/fi'
+import { FiSearch } from 'react-icons/fi';
+import { CgProfile } from 'react-icons/cg';
 
 import styled from 'styled-components'
+
+const StyledLi = styled.li`
+  float: center;
+`;
+
+const Dropbtn = styled.div`
+  display: inline-block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+`;
+
+const DropDownContent = styled.div`
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  &:hover {
+    text-color: black;
+  }
+`;
+
+const DropDownLi = styled(StyledLi)`
+  margin-left: auto;
+  display: inline-block;
+  &:hover {
+    background-color: transparent;
+  }
+  &:hover ${DropDownContent} {
+    display: block;
+  }
+`;
+
+const SubA = styled.a`
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  transition: transform .2s;
+  display: block;
+  text-align: left;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
 
 const Form = styled.form`
   position: relative;
@@ -11,11 +55,7 @@ const Form = styled.form`
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #111317;
-  /* Change width of the form depending if the bar is opened or not */
-  width: ${props => (props.barOpened ? "30rem" : "2rem")};
-  /* If bar opened, normal cursor on the whole form. If closed, show pointer on the whole form so user knows he can click to open it */
-  cursor: ${props => (props.barOpened ? "auto" : "pointer")};
-  padding: 1rem;
+  margin: 1rem;
   height: 1rem;
   border-radius: 10rem;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -26,10 +66,10 @@ const Input = styled.input`
   line-height: 1;
   background-color: transparent;
   width: 100%;
-  margin-left: ${props => (props.barOpened ? "1rem" : "0rem")};
   border: none;
   color: white;
   transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-left: 5px;
 
   &:focus,
   &:active {
@@ -37,6 +77,7 @@ const Input = styled.input`
   }
   &::placeholder {
     color: white;
+    opacity: 50%;
   }
 `;
 
@@ -70,9 +111,6 @@ const NavCenterRight = styled.div`
     background-color: #111317;
 `
 const Button = styled.button`
-  line-height: 1;
-  pointer-events: ${props => (props.barOpened ? "auto" : "none")};
-  cursor: ${props => (props.barOpened ? "pointer" : "none")};
   background-color: transparent;
   border: none;
   outline: none;
@@ -81,20 +119,18 @@ const Button = styled.button`
 
 const NavRight = styled.div`
   flex: 1;
+  display: flex;
+  justify-content: flex-end;
 `
 
 function Navbar() {
     const [input, setInput] = useState("");
-    const [barOpened, setBarOpened] = useState(false);
-    const formRef = useRef();
-    const inputFocus = useRef();
-
+    
     const onFormSubmit = e => {
         // When form submited, clear input, close the searchbar and do something with input
         e.preventDefault();
         setInput("");
-        setBarOpened(false);
-        // After form submit, do what you want with the input value
+        // After form submit, do what you want with the input valuE
         console.log(`Form was submited with input: ${input}`);
     };
 
@@ -112,33 +148,15 @@ function Navbar() {
                     <span>Hi, Amir</span>
                 </NavCenterLeft>
                 <NavCenterRight>
-                    <Form barOpened={barOpened} 
-                        onClick={() => {
-                        // When form clicked, set state of baropened to true and focus the input
-                        setBarOpened(true);
-                        inputFocus.current.focus();
-                        }}
-                        // on focus open search bar
-                        onFocus={() => {
-                        setBarOpened(true);
-                        inputFocus.current.focus();
-                        }}
-                        // on blur close search bar
-                        onBlur={() => {
-                        setBarOpened(false);
-                        }}
+                    <Form 
                         // On submit, call the onFormSubmit function
                         onSubmit={onFormSubmit}
-                        ref={formRef}
                         >
-                        <Button type="submit" barOpened={barOpened}>
-                            <FiSearch/>
+                        <Button type="submit">
+                            <FiSearch size={25}/>
                         </Button>
                         <Input
                             onChange={e => setInput(e.target.value)}
-                            ref={inputFocus}
-                            value={input}
-                            barOpened={barOpened}
                             placeholder="Search"
                         />
                     </Form>
@@ -146,7 +164,16 @@ function Navbar() {
             </NavCenter>
 
             <NavRight>
-                
+                  <DropDownLi>
+                    <Dropbtn onClick={() => this.handleClick("DropDown")}>
+                      <CgProfile size={30}/>
+                    </Dropbtn>
+                    <DropDownContent>
+                      <SubA onClick={() => this.handleClick("Link1")}>Profile</SubA>
+                      <SubA onClick={() => this.handleClick("Link2")}>Settings</SubA>
+                      <SubA onClick={() => this.handleClick("Link3")}>Log Out</SubA>
+                    </DropDownContent>
+                  </DropDownLi>
             </NavRight>
         </Nav>
     </div>

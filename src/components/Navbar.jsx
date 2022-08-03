@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import { FaPiggyBank } from 'react-icons/fa';
 import { FiSearch } from 'react-icons/fi';
 import { CgProfile } from 'react-icons/cg';
@@ -6,7 +6,7 @@ import { CgProfile } from 'react-icons/cg';
 import styled from 'styled-components'
 
 const StyledLi = styled.li`
-  float: center;
+  float: left;
 `;
 
 const Dropbtn = styled.div`
@@ -54,16 +54,13 @@ const Form = styled.form`
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #111317;
   margin: 1rem;
-  height: 1rem;
-  border-radius: 10rem;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 `;
 
 const Input = styled.input`
   font-size: .75em;
-  line-height: 1;
+  line-height: 0.5;
   background-color: transparent;
   width: 100%;
   border: none;
@@ -106,6 +103,8 @@ const NavCenterLeft = styled.div`
 
 const NavCenterRight = styled.div`
     display: flex;
+    height: 1.5em;
+    width: 35%;
     align-items: center;
     justify-content: left;
     background-color: #111317;

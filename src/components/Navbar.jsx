@@ -5,6 +5,44 @@ import { CgProfile } from 'react-icons/cg';
 
 import styled from 'styled-components'
 
+const Nav = styled.div`
+  display: flex;
+  color: white;
+  margin: 2rem;
+`
+
+const NavLeft = styled.div`
+    flex: 1;
+    font-size: 2rem;
+`    
+
+const NavCenter = styled.div`
+  flex: 2;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+`
+
+const NavCenterLeft = styled.div`
+    font-weight: 400;
+    font-size: 1em;
+`
+
+const NavCenterRight = styled.div`
+    display: flex;
+    height: 1.5em;
+    width: 35%;
+    align-items: center;
+    justify-content: left;
+    background-color: #111317;
+`
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+`;
+
 const StyledLi = styled.li`
   float: left;
 `;
@@ -26,11 +64,7 @@ const DropDownContent = styled.div`
 `;
 
 const DropDownLi = styled(StyledLi)`
-  margin-left: auto;
   display: inline-block;
-  &:hover {
-    background-color: transparent;
-  }
   &:hover ${DropDownContent} {
     display: block;
   }
@@ -45,6 +79,8 @@ const SubA = styled.a`
   text-align: left;
   &:hover {
     transform: scale(1.2);
+    color: #EF8DE9;
+    cursor: pointer;
   }
 `;
 
@@ -78,48 +114,11 @@ const Input = styled.input`
   }
 `;
 
-const Nav = styled.div`
-  display: flex;
-  color: white;
-  margin: 2rem;
-`
-
-const NavLeft = styled.div`
-    flex: 1;
-    font-size: 2rem;
-`    
-
-const NavCenter = styled.div`
-  flex: 2;
-  font-size: 2rem;
-  display: flex;
-  justify-content: space-between;
-`
-
-const NavCenterLeft = styled.div`
-    font-weight: 200;
-    font-size: 1em;
-`
-
-const NavCenterRight = styled.div`
-    display: flex;
-    height: 1.5em;
-    width: 35%;
-    align-items: center;
-    justify-content: left;
-    background-color: #111317;
-`
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: white;
-`;
-
 const NavRight = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  margin: 0 2rem;
 `
 
 function Navbar() {

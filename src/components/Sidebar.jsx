@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {RiDashboardLine} from 'react-icons/ri'
 import {BsFillInboxesFill} from 'react-icons/bs'
 import {FiSettings} from 'react-icons/fi'
+import {BiLogOut} from 'react-icons/bi'
 
 const Side = styled.div`
     display: flex;
@@ -29,6 +30,7 @@ const SideItems = styled.div`
         transform: scale(1.2);
         cursor: pointer;
     }
+    margin-top: ${props => props.logout ? "4em" : "0em" }
 `
 
 const Item = styled.div`
@@ -53,6 +55,11 @@ function Sidebar() {
         <SideItems>
             <FiSettings size={25}/>
             <Item>Settings</Item>
+        </SideItems>
+
+        <SideItems logout>
+            <BiLogOut size={25}/>
+            <Item>Log Out</Item>
         </SideItems>
     </Side>
   )

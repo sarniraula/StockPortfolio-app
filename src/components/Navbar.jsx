@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const Nav = styled.div`
   display: flex;
   color: white;
-  margin: 2rem;
+  margin: 2rem 2rem 0rem 2rem; 
 `
 
 const NavLeft = styled.div`
@@ -121,6 +121,10 @@ const NavRight = styled.div`
   margin: 0 2rem;
 `
 
+const Logo = styled.span`
+  margin-left: .75em;
+`
+
 function Navbar() {
     const [input, setInput] = useState("");
     
@@ -138,7 +142,7 @@ function Navbar() {
         <Nav>
             <NavLeft>
                 <FaPiggyBank />
-                <span>.Artha</span>
+                <Logo>Managya</Logo>
             </NavLeft>
 
             <NavCenter>
@@ -179,6 +183,5 @@ function Navbar() {
 }
 
 export default Navbar
-
 
 

@@ -4,13 +4,14 @@ import styled from 'styled-components'
 const SummaryContainer = styled.div`
     color: white;
     margin: auto;
-    width: 40%;
+    // width: 40%;
     background-color: #111317;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;   
     padding: 1em;
+    margin-bottom: 1em;
 `
 
 const Card = styled.div`

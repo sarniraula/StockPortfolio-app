@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Chart from './components/Chart';
 import styled from 'styled-components';
+import Summary from './components/Summary';
 
 const Body = styled.div`
   display: flex;
@@ -22,11 +23,12 @@ function App() {
   return (
     <div>
       <Navbar />
+      <Summary />
       <Body>
         <SidebarDiv>
           <Sidebar/>
         </SidebarDiv>
-
+        
         <ChartDiv>
           <Chart/>
         </ChartDiv>

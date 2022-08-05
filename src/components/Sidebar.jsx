@@ -43,6 +43,8 @@ function Sidebar() {
             <Item>Dashboard</Item>
         </SideItems>
 
+        
+
         <SideItems>
             <BsFillInboxesFill size={25}/>
             <Item>Shares</Item>

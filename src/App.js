@@ -5,6 +5,7 @@ import Chart from './components/Chart';
 import styled from 'styled-components';
 import Summary from './components/Summary';
 import SidebarRight from './components/SidebarRight';
+// import Highlights from './components/Highlights';
 
 
 const Body = styled.div`
@@ -36,6 +37,7 @@ function App() {
 
         <SidebarRightDiv>
           <SidebarRight />
+          {/* <Highlights /> */}
         </SidebarRightDiv>  
       </Body>
       

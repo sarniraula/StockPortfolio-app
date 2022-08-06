@@ -25,7 +25,8 @@ const SideItems = styled.div`
     border-radius: 10px;
     transition: transform .2s;
     &:hover {
-        background-color: #EF8DE9;
+        background: rgb(146,212,231);
+        background: linear-gradient(105deg, rgba(146,212,231,1) 0%, rgba(233,233,241,1) 35%, rgba(230,122,227,1) 58%, rgba(88,101,235,1) 67%, rgba(120,225,246,1) 100%);
         color: black;
         transform: scale(1.2);
         cursor: pointer;
